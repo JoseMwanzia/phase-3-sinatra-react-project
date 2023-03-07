@@ -15,15 +15,12 @@ ActiveRecord::Schema.define(version: 2023_03_06_104702) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "breed"
-    t.string "description"
-    t.string "status"
-    t.integer "age"
-    t.string "image"
+    t.string "image_url"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "username"
     t.string "password"
   end
 

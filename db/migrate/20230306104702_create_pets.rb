@@ -4,10 +4,8 @@ class CreatePets < ActiveRecord::Migration[6.1]
     create_table :pets do |t|
       t.string :name
       t.string :breed
-      t.string :description
-      t.string :status
-      t.integer :age
-      t.string :image
+      t.string :image_url
+      t.integer :user_id
     end
   end
 end
