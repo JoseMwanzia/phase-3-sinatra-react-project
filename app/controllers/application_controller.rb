@@ -36,4 +36,15 @@ class ApplicationController < Sinatra::Base
   get "/logout" do
     redirect "/login"
   end
+
+  post "/new_pet" do
+    new_pet = Pet.create(
+      name: params[:name],
+      breed: params[:breed],
+      image: params[:image_url],
+      user: params[:user_id]
+    )
+    new_pet.to_json
+  end
 end
+
