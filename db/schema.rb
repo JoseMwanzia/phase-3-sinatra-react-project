@@ -14,7 +14,10 @@ ActiveRecord::Schema.define(version: 2023_03_06_104702) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.string "breed"
+    t.string "status"
+    t.string "age"
     t.string "image_url"
     t.integer "user_id"
   end
@@ -22,6 +25,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_104702) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
+    t.string "email"
   end
 
 end
