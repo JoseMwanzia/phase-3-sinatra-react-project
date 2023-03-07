@@ -32,4 +32,8 @@ class ApplicationController < Sinatra::Base
     user.to_json
     redirect "/"
   end 
+
+  get "/logout" do
+    redirect "/login"
+  end
 end
