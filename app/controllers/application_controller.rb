@@ -48,7 +48,10 @@ class ApplicationController < Sinatra::Base
   post "/new_pet" do
     new_pet = Pet.create(
       name: params[:name],
+      description: params[:description],
       breed: params[:breed],
+      status: params[:status],
+      age: params[:age],
       image: params[:image_url],
       user: params[:user_id]
     )
@@ -60,7 +63,10 @@ class ApplicationController < Sinatra::Base
     pets = Pet.find(params[:id])
     pets.update(
       name: params[:name],
+      description: params[:description],
       breed: params[:breed],
+      status: params[:status],
+      age: params[:age],
       image: params[:image_url],
       user: params[:user_id]
     )
