@@ -46,5 +46,16 @@ class ApplicationController < Sinatra::Base
     )
     new_pet.to_json
   end
+
+  patch "/pets/:id" do
+    pets = Pet.find(params[:id])
+    pets.update(
+      name: params[:name],
+      breed: params[:breed],
+      image: params[:image_url],
+      user: params[:user_id]
+    )
+    pets.to_json
+  end
 end
 
