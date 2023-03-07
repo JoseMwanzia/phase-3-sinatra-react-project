@@ -26,4 +26,10 @@ class ApplicationController < Sinatra::Base
     binding.pry
 
   end
+
+  post "/login" do
+    user = User.find_by(email: params[:email], password: params[:password])
+    user.to_json
+    redirect "/"
+  end 
 end
