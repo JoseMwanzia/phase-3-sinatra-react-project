@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
       redirect "/signup"
 
   #check if username is taken
-    elsif user.find_by( username: params[user][:username])
+    elsif users.find_by( username: params[user][:username])
       redirect "/signup"
     else
       User.create(params[:user])
@@ -34,9 +34,9 @@ class ApplicationController < Sinatra::Base
 
   # login method
   post "/login" do
-    user = User.find_by(email: params[:email], password: params[:password])
+    user = User.find_by(username: params[:username], password: params[:password])
     user.to_json
-    redirect "/"
+    redirect "/pets"
   end 
 
   # added a logout method.
@@ -51,10 +51,9 @@ class ApplicationController < Sinatra::Base
   end
 
   # update method for existing pets
-  put "/pets/:id" do
+  put "/pets/update/:id" do
     pets = Pet.find(params[:id])
     data = JSON.parse(request.body.read)
-    pets.update(data)
     pets.update(data)
     pets.to_json
   end
