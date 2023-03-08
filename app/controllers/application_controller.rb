@@ -51,18 +51,10 @@ class ApplicationController < Sinatra::Base
   end
 
   # update method for existing pets
-  put "/pets/update/:id" do
+  put "/pets/:id" do
     pets = Pet.find(params[:id])
     data = JSON.parse(request.body.read)
-    pets.update(
-      name: params[:name],
-      description: params[:description],
-      breed: params[:breed],
-      status: params[:status],
-      age: params[:age],
-      image: params[:image_url],
-      user: params[:user_id]
-    )
+    pets.update(data)
     pets.update(data)
     pets.to_json
   end
